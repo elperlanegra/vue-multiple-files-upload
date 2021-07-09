@@ -92,10 +92,10 @@ export default {
     },
 
     upload(idx, file) {
-      this.progressInfos[idx] = { porcertage: 0, fileName: file.name };
+      this.progressInfos[idx] = { porcentage: 0, fileName: file.name };
 
       UploadService.upload(file, (event) => {
-        this.progressInfos[idx].porcertage = Math.round(
+        this.progressInfos[idx].porcentage = Math.round(
           (100 * event.loaded) / event.total
         );
       })
@@ -110,7 +110,7 @@ export default {
         })
 
         .catch(() => {
-          this.progressInfos[idx].porcertage = 0;
+          this.progressInfos[idx].porcentage = 0;
           this.message = "Could not upload the file: " + file.name;
         });
     },
