@@ -83,7 +83,7 @@ export default {
       this.selectedFiles = event.target.files;
     },
 
-    uploadFile() {
+    uploadFiles() {
       this.message = "";
 
       for (let i = 0; i < this.selectedFiles.length; i++) {
@@ -96,7 +96,7 @@ export default {
 
       UploadService.upload(file, (event) => {
         this.progressInfos[idx].porcertage = Math.round(
-          (100 * event.loaded) / envent.total
+          (100 * event.loaded) / event.total
         );
       })
         .then((response) => {
